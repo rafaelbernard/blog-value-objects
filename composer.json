@@ -1,0 +1,25 @@
+{
+    "name": "rafael/blog-value-objects",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "test/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rafael Bernard Araújo",
+            "email": "rafael.araujo@initd.info"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit -c test/phpunit.xml test/"
+    }
+}

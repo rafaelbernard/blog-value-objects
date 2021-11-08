@@ -2,6 +2,7 @@
 
 namespace Test\Blog\Domain;
 
+use Blog\Domain\ClassYear;
 use Blog\Domain\Grade;
 use Test\TestCase;
 
@@ -40,25 +41,15 @@ class GradeTest extends TestCase
     /**
      * @test
      */
-    public function itCanNotBeCreatedFromAString()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-
-        new Grade('this is not a valid grade');
-    }
-
-    /**
-     * @test
-     */
     public function itShouldReturnCorrectStudentGradeGivenStudentClassYearAndSeniorClassYear()
     {
-        $student1ClassYear = ClassYear::fromNative(2020);
-        $student2ClassYear = ClassYear::fromNative(2021);
-        $student3ClassYear = ClassYear::fromNative(2022);
-        $student4ClassYear = ClassYear::fromNative(2028);
-        $student5ClassYear = ClassYear::fromNative(2019);
-        $student6ClassYear = ClassYear::fromNative(2032);
-        $seniorClassYear = ClassYear::fromNative(2020);
+        $student1ClassYear = new ClassYear(2020);
+        $student2ClassYear = new ClassYear(2021);
+        $student3ClassYear = new ClassYear(2022);
+        $student4ClassYear = new ClassYear(2028);
+        $student5ClassYear = new ClassYear(2019);
+        $student6ClassYear = new ClassYear(2032);
+        $seniorClassYear = new ClassYear(2020);
 
         $student1Grade = Grade::gradeFromStudentClassYearAndSeniorClassYear($student1ClassYear, $seniorClassYear);
         $student2Grade = Grade::gradeFromStudentClassYearAndSeniorClassYear($student2ClassYear, $seniorClassYear);

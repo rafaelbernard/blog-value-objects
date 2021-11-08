@@ -19,22 +19,18 @@ final class Grade
     const FIRST_GRADE = 1;
     const KINDERGARTEN = 0;
 
-    /* @var int $value */
-    private $value;
+    private int $value;
 
-    /**
-     * @param int|string $value
-     */
-    public function __construct($value)
+    public function __construct(int $value)
     {
         if (
             filter_var(
                 $value,
                 FILTER_VALIDATE_INT,
                 ["options" => ["min_range" => self::KINDERGARTEN, "max_range" => self::ALUMNI]]
-            ) !== false
+            ) === false
         ) {
-            throw new \OutOfRangeException('Grade must be an integer between 0 (Kindergarten) and 13 (Alumni)');
+            throw new \InvalidArgumentException('Grade must be an integer between 0 (Kindergarten) and 13 (Alumni)');
         }
 
         $this->value = $value;
@@ -49,12 +45,14 @@ final class Grade
     public static function gradeFromStudentClassYearAndSeniorClassYear(Classyear $studentClassYear, ClassYear $seniorClassYear)
     {
         $value = $seniorClassYear->value() - $studentClassYear->value() + 12;
+
         if ($value > self::TWELFTH_GRADE) {
             $value = self::ALUMNI;
         } elseif ($value < 1) {
             $value = self::KINDERGARTEN;
         }
-        return new static($value);
+
+        return new self($value);
     }
 
     public function value(): int

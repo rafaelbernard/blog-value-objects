@@ -2,7 +2,7 @@
 
 namespace Blog\Domain;
 
-final class Grade
+class ClassGrade
 {
     const ALUMNI = 13;
     const TWELFTH_GRADE = 12;
@@ -36,13 +36,7 @@ final class Grade
         $this->value = $value;
     }
 
-    /**
-     * @param ClassYear $studentClassYear
-     * @param ClassYear $seniorClassYear
-     *
-     * @return Grade
-     */
-    public static function gradeFromStudentClassYearAndSeniorClassYear(Classyear $studentClassYear, ClassYear $seniorClassYear)
+    public static function gradeFromStudentClassYearAndSeniorClassYear(Classyear $studentClassYear, ClassYear $seniorClassYear): ClassGrade
     {
         $value = $seniorClassYear->value() - $studentClassYear->value() + 12;
 

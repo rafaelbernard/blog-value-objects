@@ -3,7 +3,7 @@
 namespace Test\Blog\Domain;
 
 use Blog\Domain\ClassYear;
-use Blog\Domain\Grade;
+use Blog\Domain\ClassGrade;
 use Test\TestCase;
 
 class GradeTest extends TestCase
@@ -24,8 +24,8 @@ class GradeTest extends TestCase
      */
     public function itCanBeCreatedFromANumber()
     {
-        $grade = new Grade(self::SEVENTH_GRADE);
-        $this->assertInstanceOf(Grade::class, $grade);
+        $grade = new ClassGrade(self::SEVENTH_GRADE);
+        $this->assertInstanceOf(ClassGrade::class, $grade);
     }
 
     /**
@@ -35,7 +35,7 @@ class GradeTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        new Grade(self::INVALID_GRADE);
+        new ClassGrade(self::INVALID_GRADE);
     }
 
     /**
@@ -51,18 +51,18 @@ class GradeTest extends TestCase
         $student6ClassYear = new ClassYear(2032);
         $seniorClassYear = new ClassYear(2020);
 
-        $student1Grade = Grade::gradeFromStudentClassYearAndSeniorClassYear($student1ClassYear, $seniorClassYear);
-        $student2Grade = Grade::gradeFromStudentClassYearAndSeniorClassYear($student2ClassYear, $seniorClassYear);
-        $student3Grade = Grade::gradeFromStudentClassYearAndSeniorClassYear($student3ClassYear, $seniorClassYear);
-        $student4Grade = Grade::gradeFromStudentClassYearAndSeniorClassYear($student4ClassYear, $seniorClassYear);
-        $student5Grade = Grade::gradeFromStudentClassYearAndSeniorClassYear($student5ClassYear, $seniorClassYear);
-        $student6Grade = Grade::gradeFromStudentClassYearAndSeniorClassYear($student6ClassYear, $seniorClassYear);
+        $student1Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student1ClassYear, $seniorClassYear);
+        $student2Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student2ClassYear, $seniorClassYear);
+        $student3Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student3ClassYear, $seniorClassYear);
+        $student4Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student4ClassYear, $seniorClassYear);
+        $student5Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student5ClassYear, $seniorClassYear);
+        $student6Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student6ClassYear, $seniorClassYear);
 
-        $this->assertEquals($student1Grade->value(), Grade::TWELFTH_GRADE);
-        $this->assertEquals($student2Grade->value(), Grade::ELEVENTH_GRADE);
-        $this->assertEquals($student3Grade->value(), Grade::TENTH_GRADE);
-        $this->assertEquals($student4Grade->value(), Grade::FOURTH_GRADE);
-        $this->assertEquals($student5Grade->value(), Grade::ALUMNI);
-        $this->assertEquals($student6Grade->value(), Grade::KINDERGARTEN);
+        $this->assertEquals(ClassGrade::TWELFTH_GRADE, $student1Grade->value());
+        $this->assertEquals(ClassGrade::ELEVENTH_GRADE, $student2Grade->value());
+        $this->assertEquals(ClassGrade::TENTH_GRADE, $student3Grade->value());
+        $this->assertEquals(ClassGrade::FOURTH_GRADE, $student4Grade->value());
+        $this->assertEquals(ClassGrade::ALUMNI, $student5Grade->value());
+        $this->assertEquals(ClassGrade::KINDERGARTEN, $student6Grade->value());
     }
 }

@@ -3,16 +3,11 @@
 namespace Test\Blog\Domain;
 
 use Blog\Domain\ClassYear;
-use Blog\Domain\ClassGrade;
+use Blog\Domain\CardRank;
 use Test\TestCase;
 
 class GradeTest extends TestCase
 {
-    const EARLY_MONTH = 1;
-    const LATE_MONTH = 9;
-    const CUSTOM_ROLLOVER_MONTH = 10;
-    const ROLL_OVER_DAY = 31;
-
     const SEVENTH_GRADE = 7;
     const EIGHTH_GRADE = 8;
     const TWELFTH_GRADE = 12;
@@ -24,8 +19,8 @@ class GradeTest extends TestCase
      */
     public function itCanBeCreatedFromANumber()
     {
-        $grade = new ClassGrade(self::SEVENTH_GRADE);
-        $this->assertInstanceOf(ClassGrade::class, $grade);
+        $grade = new CardRank(self::SEVENTH_GRADE);
+        $this->assertInstanceOf(CardRank::class, $grade);
     }
 
     /**
@@ -35,7 +30,7 @@ class GradeTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        new ClassGrade(self::INVALID_GRADE);
+        new CardRank(self::INVALID_GRADE);
     }
 
     /**
@@ -51,18 +46,18 @@ class GradeTest extends TestCase
         $student6ClassYear = new ClassYear(2032);
         $seniorClassYear = new ClassYear(2020);
 
-        $student1Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student1ClassYear, $seniorClassYear);
-        $student2Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student2ClassYear, $seniorClassYear);
-        $student3Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student3ClassYear, $seniorClassYear);
-        $student4Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student4ClassYear, $seniorClassYear);
-        $student5Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student5ClassYear, $seniorClassYear);
-        $student6Grade = ClassGrade::gradeFromStudentClassYearAndSeniorClassYear($student6ClassYear, $seniorClassYear);
+        $student1Grade = CardRank::gradeFromStudentClassYearAndSeniorClassYear($student1ClassYear, $seniorClassYear);
+        $student2Grade = CardRank::gradeFromStudentClassYearAndSeniorClassYear($student2ClassYear, $seniorClassYear);
+        $student3Grade = CardRank::gradeFromStudentClassYearAndSeniorClassYear($student3ClassYear, $seniorClassYear);
+        $student4Grade = CardRank::gradeFromStudentClassYearAndSeniorClassYear($student4ClassYear, $seniorClassYear);
+        $student5Grade = CardRank::gradeFromStudentClassYearAndSeniorClassYear($student5ClassYear, $seniorClassYear);
+        $student6Grade = CardRank::gradeFromStudentClassYearAndSeniorClassYear($student6ClassYear, $seniorClassYear);
 
-        $this->assertEquals(ClassGrade::TWELFTH_GRADE, $student1Grade->value());
-        $this->assertEquals(ClassGrade::ELEVENTH_GRADE, $student2Grade->value());
-        $this->assertEquals(ClassGrade::TENTH_GRADE, $student3Grade->value());
-        $this->assertEquals(ClassGrade::FOURTH_GRADE, $student4Grade->value());
-        $this->assertEquals(ClassGrade::ALUMNI, $student5Grade->value());
-        $this->assertEquals(ClassGrade::KINDERGARTEN, $student6Grade->value());
+        $this->assertEquals(CardRank::TWELFTH_GRADE, $student1Grade->value());
+        $this->assertEquals(CardRank::ELEVENTH_GRADE, $student2Grade->value());
+        $this->assertEquals(CardRank::TENTH_GRADE, $student3Grade->value());
+        $this->assertEquals(CardRank::FOURTH_GRADE, $student4Grade->value());
+        $this->assertEquals(CardRank::ALUMNI, $student5Grade->value());
+        $this->assertEquals(CardRank::KINDERGARTEN, $student6Grade->value());
     }
 }

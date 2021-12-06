@@ -27,10 +27,13 @@ class CardRankTest extends TestCase
         }, CardRank::RANKS);
     }
 
-    public function testItCanNotBeCreatedFromAnInvalidNumber()
+    public function testItCanNotBeCreatedFromAnInvalid()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $value = self::INVALID_GRADE;
 
-        new CardRank(self::INVALID_GRADE);
+        self::expectException(\InvalidArgumentException::class);
+        self::expectExceptionMessage("`$value` is not a valid card rank.");
+
+        new CardRank($value);
     }
 }

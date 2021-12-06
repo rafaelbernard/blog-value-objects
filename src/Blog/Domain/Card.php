@@ -4,6 +4,6 @@ namespace Blog\Domain;
 
 final class Card
 {
-    public ?Suit $suit = null;
+    public ?CardSuit $suit = null;
     public ?CardRank $rank = null;
 }

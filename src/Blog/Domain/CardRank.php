@@ -39,7 +39,7 @@ class CardRank
     public function __construct(string $value)
     {
         if (!in_array($value, self::RANKS)) {
-            throw new \InvalidArgumentException("`$value` is not a valid rank.");
+            throw new \InvalidArgumentException("`$value` is not a valid card rank.");
         }
 
         $this->value = $value;

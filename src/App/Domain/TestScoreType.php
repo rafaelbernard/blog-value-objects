@@ -1,6 +1,6 @@
 <?php
 
-namespace Blog\Domain;
+namespace App\Domain;
 
 // PHP 5.6 compatible to simulate Enums
 class TestScoreType

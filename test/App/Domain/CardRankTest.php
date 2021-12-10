@@ -1,8 +1,8 @@
 <?php
 
-namespace Test\Blog\Domain;
+namespace Test\App\Domain;
 
-use Blog\Domain\CardRank;
+use App\Domain\CardRank;
 use Test\TestCase;
 
 class CardRankTest extends TestCase

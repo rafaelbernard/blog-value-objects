@@ -1,6 +1,6 @@
 <?php
 
-namespace Blog\Domain;
+namespace App\Domain;
 
 class CardSuit
 {

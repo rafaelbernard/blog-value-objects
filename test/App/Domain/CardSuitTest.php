@@ -1,8 +1,8 @@
 <?php
 
-namespace Test\Blog\Domain;
+namespace Test\App\Domain;
 
-use Blog\Domain\CardSuit;
+use App\Domain\CardSuit;
 use Test\TestCase;
 
 class CardSuitTest extends TestCase

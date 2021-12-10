@@ -1,8 +1,8 @@
 <?php
 
-namespace Blog\Domain;
+namespace App\Domain;
 
-final class Card
+class Card
 {
     public ?CardSuit $suit = null;
     public ?CardRank $rank = null;

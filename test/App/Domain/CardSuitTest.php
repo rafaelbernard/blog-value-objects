@@ -7,7 +7,7 @@ use Test\TestCase;
 
 class CardSuitTest extends TestCase
 {
-    public const INVALID_SUIT = 'Invalids';
+    private const INVALID_SUIT = 'Invalids';
 
     /**
      * @dataProvider provideSuits

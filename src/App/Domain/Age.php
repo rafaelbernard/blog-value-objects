@@ -11,7 +11,7 @@ class Age
      */
     public function __construct(int $value)
     {
-        if (!$value < 0) {
+        if ($value < 0) {
             throw new \UnexpectedValueException('Negative numbers are not a valid age.');
         }
 

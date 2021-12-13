@@ -36,4 +36,12 @@ class CardRankTest extends TestCase
 
         new CardRank($value);
     }
+
+    public function testItCanCheckIsGreaterThan()
+    {
+        $ace = CardRank::ace();
+        $king = new CardRank(CardRank::KING);
+        self::assertTrue($ace->isGreaterThan($king));
+        self::assertFalse($king->isGreaterThan($ace));
+    }
 }

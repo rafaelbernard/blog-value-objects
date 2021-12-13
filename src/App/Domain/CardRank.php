@@ -34,6 +34,22 @@ class CardRank
         self::TWO
     ];
 
+    const WEIGHTS = [
+        self::ACE => 20,
+        self::KING => 13,
+        self::QUEEN => 12,
+        self::JACK => 11,
+        self::TEN => 10,
+        self::NINE => 9,
+        self::EIGHT => 8,
+        self::SEVEN => 7,
+        self::SIX => 6,
+        self::FIVE => 5,
+        self::FOUR => 4,
+        self::THREE => 3,
+        self::TWO => 2
+    ];
+
     private string $value;
 
     public function __construct(string $value)
@@ -53,5 +69,27 @@ class CardRank
     public function value(): string
     {
         return $this->value;
+    }
+
+    public function weight(): int
+    {
+        return self::WEIGHTS[$this->value];
+    }
+
+    public function isGreaterThan(CardRank $cardRank): bool
+    {
+        return $this->weight() > $cardRank->weight();
+    }
+
+    // Some helper static functions can be created to be more readable
+
+    public static function two(): CardRank
+    {
+        return new self(self::TWO);
+    }
+
+    public static function ace(): CardRank
+    {
+        return new self(self::ACE);
     }
 }

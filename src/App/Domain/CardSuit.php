@@ -36,4 +36,11 @@ class CardSuit
     {
         return $this->value;
     }
+
+    // Some helper static functions can be created to be more readable
+
+    public static function spades(): CardSuit
+    {
+        return new self(self::SPADES);
+    }
 }

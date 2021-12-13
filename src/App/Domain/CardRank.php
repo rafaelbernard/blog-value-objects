@@ -4,21 +4,21 @@ namespace App\Domain;
 
 class CardRank
 {
-    const ACE = 'A';
-    const KING = 'K';
-    const QUEEN = 'Q';
-    const JACK = 'J';
-    const TEN = 'X';
-    const NINE = '9';
-    const EIGHT = '8';
-    const SEVEN = '7';
-    const SIX = '6';
-    const FIVE = '5';
-    const FOUR = '4';
-    const THREE = '3';
-    const TWO = '2';
+    public const ACE = 'A';
+    public const KING = 'K';
+    public const QUEEN = 'Q';
+    public const JACK = 'J';
+    public const TEN = 'X';
+    public const NINE = '9';
+    public const EIGHT = '8';
+    public const SEVEN = '7';
+    public const SIX = '6';
+    public const FIVE = '5';
+    public const FOUR = '4';
+    public const THREE = '3';
+    public const TWO = '2';
 
-    const RANKS = [
+    public const RANKS = [
         self::ACE,
         self::KING,
         self::QUEEN,
@@ -34,7 +34,7 @@ class CardRank
         self::TWO
     ];
 
-    const WEIGHTS = [
+    public const WEIGHTS = [
         self::ACE => 20,
         self::KING => 13,
         self::QUEEN => 12,

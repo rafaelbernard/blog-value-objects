@@ -7,7 +7,7 @@ use Test\TestCase;
 
 class CardRankTest extends TestCase
 {
-    const INVALID_GRADE = '1';
+    public const INVALID_GRADE = '1';
 
     /**
      * @dataProvider provideRanks

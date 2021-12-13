@@ -4,12 +4,12 @@ namespace App\Domain;
 
 class CardSuit
 {
-    const HEARTS = 'H';
-    const DIAMONDS = 'D';
-    const CLUBS = 'C';
-    const SPADES = 'S';
+    public const HEARTS = 'H';
+    public const DIAMONDS = 'D';
+    public const CLUBS = 'C';
+    public const SPADES = 'S';
 
-    const SUITS = [
+    public const SUITS = [
         self::HEARTS,
         self::DIAMONDS,
         self::CLUBS,
